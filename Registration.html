@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="css/registration.css" />
+		<title>Registration Form</title>
+	</head>
+	<body>
+		<div class="modal-dialog text center">
+		  <div class= "col-sm-12 main">
+			 <div class= "modal-content">
+			 	<div class= "col-12 mt-4">
+			          
+       			    </div>
+					 	<center>
+					 		<i class= "fname"><label for="fname">CREATE ACCOUNT WITH</label></i> <br>
+						 	<a href="https://www.facebook.com/"><img src="image/facebook.png" alt= "Facebook" class= "FB" 
+						 	style="width:80px; height: 80px; border-radius:90px"></a>
+						 	<a href="https://www.gmail.com"><img src="image/google.png" alt= "mail" class= "Gmail"
+						 	style="width:80px; height: 80px; border-radius:90px"></a><br>
+					 	  	<i class= "fname"><label for="fname">-----------------------OR-----------------------</label></i> 
+				 		</center><br><br>
+				 		<div class="pl-5 pr-5 input">
+				 			<form onsubmit="return(validate(this));">
+						  	<label>Fullname:</label>
+							<input
+								type="fullname"
+								class="form-control mb-3"
+								placeholder="Your Name"
+								required/>
+							<label>Username:</label>
+							<input 
+								type="username"
+								name="username"
+								class="form-control mb-3"
+								placeholder="Username"
+								required/>
+							
+							<label>Email Address:</label>
+							<input 
+							type="email" id="email"
+							name="email"
+							class="form-control"
+							placeholder="Enter valid email" 
+							required="required"/>
+
+							<label>Password:</label>
+							<input 
+								type="password"
+								name="password"
+								id="password"
+								class="form-control mb-3"
+								required/>
+							<label>Confirm Password:</label>
+							<input 
+								type="password"
+								name="confirmPassword"
+								id="confirmPassword"
+								class="form-control mb-3"
+								required/>
+							<button type="Submit" class="btn btn-primary mt-4 submitBtn">Register</button><br><br>
+						</form>
+								 </div>
+						   <center>
+							 <div class="mt-3 forgot-create">
+								<a href="login.html" class="mb-3">Already have an Account? Log In</a><br><br><br>
+							 </div>
+						  </center>
+						</div>
+
+				    	</div>
+					  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function emailCheck(){
+        if($("#email").val()==""){
+            $("#email").addClass('is-invalid');
+            return false;
+        }else{
+            var regMail     =   /^([_a-zA-Z0-9-]+)(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,3})$/;
+            if(regMail.test($("#email").val()) == false){
+                $("#email").addClass('is-invalid');
+
+                return false;
+
+            }else{
+                $("#email").removeClass('is-invalid');
+                $('#next-form').collapse('show');
+            }
+
+        }
+    }
+		function validate(form){
+			var password = document.getElementById('password').value;
+			var confirmPassword = document.getElementById('confirmPassword').value;
+			if(password != confirmPassword){
+				alert('Mismatched Password!');
+				return false;
+			}else{
+				alert('Account Successfuly Created!');
+				window.open('login.html', "_self");
+			}
+			return true;
+		}
+	</script>
+
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous">	
+		</script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+			crossorigin="anonymous">
+		</script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+			crossorigin="anonymous">
+		</script>
+	</body>
+</html>
